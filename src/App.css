@@ -15,7 +15,7 @@ html body {
 .titleBar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 40px;
   height: 60px;
 }
@@ -29,19 +29,21 @@ html body {
   font-size: 16px;
   font-weight: bold;
   margin-top: 25px;
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .searchCart {
   display: flex;
   flex-direction: row;
   margin-right: 100px;
+  margin-left: 300px;
 }
 
 .searchBar {
   height: 30px;
   margin-top: 10px;
   margin-right: 10px;
+  width: 180px;
   border: solid 2px gray;
 }
 
@@ -87,7 +89,8 @@ html body {
 .titleName {
   font-size: 28px;
   cursor: pointer;
-  padding-bottom: 0px;
+  margin-top: 10px;
+  margin-left: 40px;
 }
 
 .catName {
