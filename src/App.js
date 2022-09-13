@@ -26,6 +26,9 @@ const db = firebase.firestore();
 function App() {
   const [home, setHome] = useState(true);
 
+  const [searchScreen, setSearchScreen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
   // Remember user for cart
   var id = "id" + Math.random().toString(16).slice(2);
   const [currentUser, setCurrentUser] = useLocalStorage();
@@ -54,6 +57,10 @@ function App() {
     cartAmount,
     setHome,
     getDbmessages,
+    searchScreen,
+    setSearchScreen,
+    searchQuery,
+    setSearchQuery,
  };
 
   return (
