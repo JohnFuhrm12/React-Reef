@@ -54,6 +54,11 @@ function Homescreen( {...props} ) {
         props.setProductSelectionScreen(true);
     };
 
+    function showAdmin() {
+        props.setHome(false);
+        props.setAdminScreen(true);
+    };
+
     return (
         <>
         <div className='page'>
@@ -62,7 +67,7 @@ function Homescreen( {...props} ) {
                     <h1 className='catName' title="Soft Corals" onClick={showProductSelection}>Corals</h1>
                     <h1 className='catName' title="Supplies" onClick={showProductSelection}>Supplies</h1>
                     <h1 className='catName' title="Saltwater Fish" onClick={showProductSelection}>Fish</h1>
-                    <h1 className='catName' title="Invertabrates" onClick={showProductSelection}>Inverts</h1>
+                    <h1 className='catName' title="Invertebrates" onClick={showProductSelection}>Inverts</h1>
                 <div className='searchCart'>
                     <img src={search} className="search" alt="Search"/>
                     <input onChange={(e) => {setSearchKey(e.target.value)}} onKeyDown={(e) => {searchFunc(e)}} className='searchBar' type="text" value={searchKey} placeholder="Search ..."/>
@@ -102,8 +107,8 @@ function Homescreen( {...props} ) {
             </div>
             <div className='selectionChoicesBottom'>
             <div>
-                <img onClick={showProductSelection} src={invertHome} className="selectionIMG" title="Invertabrates" alt="Selection-Inverts"/>
-                <h1 onClick={showProductSelection} title="Invertabrates" className='selectionName'>Shop Inverts</h1>
+                <img onClick={showProductSelection} src={invertHome} className="selectionIMG" title="Invertebrates" alt="Selection-Inverts"/>
+                <h1 onClick={showProductSelection} title="Invertebrates" className='selectionName'>Shop Inverts</h1>
             </div>
             <div>
                 <img onClick={showProductSelection} src={suppliesHome} className="selectionIMG" title="Supplies" alt="Selection-Supplies"/>
@@ -113,6 +118,7 @@ function Homescreen( {...props} ) {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#092849" fill-opacity="1" d="M0,96L34.3,90.7C68.6,85,137,75,206,85.3C274.3,96,343,128,411,138.7C480,149,549,139,617,117.3C685.7,96,754,64,823,58.7C891.4,53,960,75,1029,96C1097.1,117,1166,139,1234,144C1302.9,149,1371,139,1406,133.3L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"/>
             </svg>
+            <h1 onClick={showAdmin}>Admin</h1>
         </div>
         </>
     )
