@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import Homescreen from './Homescreen';
+import ProductSelection from './ProductSelection';
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -28,6 +29,9 @@ function App() {
 
   const [searchScreen, setSearchScreen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const [productSelectionCategory, setProductSelectionCategory] = useState('');
+  const [productSelectionScreen, setProductSelectionScreen] = useState('');
 
   // Remember user for cart
   var id = "id" + Math.random().toString(16).slice(2);
@@ -61,11 +65,16 @@ function App() {
     setSearchScreen,
     searchQuery,
     setSearchQuery,
+    productSelectionCategory,
+    setProductSelectionCategory,
+    productSelectionScreen,
+    setProductSelectionScreen,
  };
 
   return (
     <>
     {home ? <Homescreen {...props}/> : <></>}
+    {productSelectionScreen ? <ProductSelection {...props}/> : <></>}
     </>
   );
 }

@@ -1,7 +1,6 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 
-
 import cart from './static/cart.png';
 import search from './static/search.png';
 
@@ -13,6 +12,25 @@ import suppliesHome from './static/suppliesHome.jpg';
 
 import test from './static/test.gif';
 import testvid from './static/testvid.mp4';
+
+// Firebase imports
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import { collection, doc, setDoc, deleteDoc, getDocs, query, where, limit } from "firebase/firestore";
+
+// Initialize Firebase Database
+firebase.initializeApp({
+  apiKey: "AIzaSyB5aeD3R-qHoRlLJcNGmrpCVZEocRz90Dk",
+  authDomain: "reef-store-9da21.firebaseapp.com",
+  projectId: "reef-store-9da21",
+  storageBucket: "reef-store-9da21.appspot.com",
+  messagingSenderId: "149895470839",
+  appId: "1:149895470839:web:5937a7595ca8b696f17df2"
+});
+
+// Firebase Database
+const db = firebase.firestore();
 
 function Homescreen( {...props} ) {
 
@@ -30,15 +48,21 @@ function Homescreen( {...props} ) {
         };
     };
 
+    function showProductSelection(e) {
+        props.setHome(false);
+        props.setProductSelectionCategory(e.currentTarget.title);
+        props.setProductSelectionScreen(true);
+    };
+
     return (
         <>
         <div className='page'>
             <div className='titleBar'>
                     <h1 className='titleName' onClick={refresh} >JF Aquatics</h1>
-                    <h1 className='catName'>Corals</h1>
-                    <h1 className='catName'>Supplies</h1>
-                    <h1 className='catName'>Fish</h1>
-                    <h1 className='catName'>Inverts</h1>
+                    <h1 className='catName' title="Soft Corals" onClick={showProductSelection}>Corals</h1>
+                    <h1 className='catName' title="Supplies" onClick={showProductSelection}>Supplies</h1>
+                    <h1 className='catName' title="Saltwater Fish" onClick={showProductSelection}>Fish</h1>
+                    <h1 className='catName' title="Invertabrates" onClick={showProductSelection}>Inverts</h1>
                 <div className='searchCart'>
                     <img src={search} className="search" alt="Search"/>
                     <input onChange={(e) => {setSearchKey(e.target.value)}} onKeyDown={(e) => {searchFunc(e)}} className='searchBar' type="text" value={searchKey} placeholder="Search ..."/>
@@ -64,26 +88,26 @@ function Homescreen( {...props} ) {
             <h1 className='selectionTitle'>Our Selection</h1>
             <div className='selectionChoicesTop'>
             <div>
-                <img onClick={refresh} src={coralHome} className="selectionIMG" alt="Selection-Soft=Corals"/>
-                <h1  onClick={refresh} className='selectionName'>Shop Soft Corals</h1>
+                <img onClick={showProductSelection} src={coralHome} className="selectionIMG" title="Soft Corals" alt="Selection-Soft=Corals"/>
+                <h1  onClick={showProductSelection} title="Soft Corals" className='selectionName'>Shop Soft Corals</h1>
             </div>
             <div>
-                <img onClick={refresh} src={hardCoralsHome} className="selectionIMG" alt="Selection-Hard-Corals"/>
-                <h1 onClick={refresh} className='selectionName'>Shop Hard Corals</h1>
+                <img onClick={showProductSelection} src={hardCoralsHome} className="selectionIMG" title="Hard Corals" alt="Selection-Hard-Corals"/>
+                <h1 onClick={showProductSelection} title="Hard Corals"className='selectionName'>Shop Hard Corals</h1>
             </div>
             <div>
-                <img onClick={refresh} src={fishHome} className="selectionIMG" alt="Selection-Fish"/>
-                <h1 onClick={refresh} className='selectionName'>Shop Fish</h1>
+                <img onClick={showProductSelection} src={fishHome} className="selectionIMG" title="Saltwater Fish" alt="Selection-Fish"/>
+                <h1 onClick={showProductSelection} title="Saltwater Fish" className='selectionName'>Shop Fish</h1>
             </div>
             </div>
             <div className='selectionChoicesBottom'>
             <div>
-                <img onClick={refresh} src={invertHome} className="selectionIMG" alt="Selection-Inverts"/>
-                <h1 onClick={refresh} className='selectionName'>Shop Inverts</h1>
+                <img onClick={showProductSelection} src={invertHome} className="selectionIMG" title="Invertabrates" alt="Selection-Inverts"/>
+                <h1 onClick={showProductSelection} title="Invertabrates" className='selectionName'>Shop Inverts</h1>
             </div>
             <div>
-                <img onClick={refresh} src={suppliesHome} className="selectionIMG" alt="Selection-Supplies"/>
-                <h1 onClick={refresh} className='selectionName'>Shop Supplies</h1>
+                <img onClick={showProductSelection} src={suppliesHome} className="selectionIMG" title="Supplies" alt="Selection-Supplies"/>
+                <h1 onClick={showProductSelection} title="Supplies" className='selectionName'>Shop Supplies</h1>
             </div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
