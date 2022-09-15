@@ -776,9 +776,14 @@ html body {
 
 
 
-
-
-
+/* SPACE */
+/* SPACE */
+/* SPACE */
+/* SPACE */
+/* SPACE */
+/* SPACE */
+/* SPACE */
+/* SPACE */
 
 
 
@@ -795,6 +800,17 @@ html body {
       font-size: 22px;
       margin-left: 50px;
       cursor: pointer;
+  }
+
+  .titleName {
+    font-size: 16px;
+    margin-left: 10px;
+    width: 70px;
+  }
+
+  .catName {
+    font-size: 14px;
+    margin-top: 25px;
   }
   
   .subtitle {
@@ -836,8 +852,9 @@ html body {
   
   .searchCart {
       margin-right: 0px;
+      margin-left: 0px;
   }
-  
+
   .searchBar {
       display: none;
   }
@@ -857,22 +874,92 @@ html body {
       margin-top: 0px;
   }
   /* Nav Bar */
-  
-  /* Home-screen Selection Section*/
-  .selectionTitleBehind {
-      z-index: 1;
-      color: #1db0d1;
-      font-family: 'Dancing Script';
-      font-size: 40px;
-      margin-bottom: -36px;
-      margin-top: 0px;
+
+  .videoBox {
+    height: 250px;
+    width: 100%;
+    position: relative;
+    z-index: 0;
   }
   
+  .videoText {
+    position: absolute;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    top: 40px;
+    left: 20px;
+    -webkit-text-stroke: 2px rgb(70, 39, 212);
+  }
+  
+  .videoText2 {
+    position: absolute;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    top: 80px;
+    left: 20px;
+    -webkit-text-stroke: 2px rgb(70, 39, 212);
+  }
+  
+  .homeVideo {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .waveSVG {
+    position: relative;
+    z-index: 1;
+    margin-top: -85px;
+  }
+  
+  .testSVG {
+    position: relative;
+    z-index: 0;
+    margin-top: -5px;
+  }
+  
+  .testSVG2 {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    z-index: 1;
+  }
+  
+  .testSVG3 {
+    position: absolute;
+    top: 94px;
+    left: 0px;
+    z-index: 2;
+  }
+  
+  .testSVG4 {
+    position: absolute;
+    bottom: 2px;
+    left: 90px;
+  }
+  
+  .testSVG5 {
+    position: absolute;
+    top: 35px;
+    left: 30px;
+    z-index: 0;
+  }
+  
+  /* Home-screen Selection Section*/
+
   .selectionTitle {
       z-index: 2;
       margin-top: 20px;
-      font-size: 14px;
-      font-family: 'Lato', sans-serif;
+      font-size: 20px;
+      width: 160px;
   }
   
   .selectionIMG {
@@ -1067,7 +1154,7 @@ html body {
       margin-left: 0%;
       margin-right: 18%;
       margin-top: 40px;
-      margin-bottom: 100px;
+      margin-bottom: 360px;
   }
   
   .subtButton {
@@ -1225,7 +1312,7 @@ html body {
       margin-left: 15%;
       margin-right: 15%;
       margin-top: 10%;
-      margin-bottom: 10%;
+      margin-bottom: 13%;
       padding: 20px;
   }
   
@@ -1308,7 +1395,7 @@ html body {
       cursor: pointer;
       padding: 10px;
       transition: 0.5s;
-      margin-bottom: 60px;
+      margin-bottom: 120px;
       color: black;
   }
   
@@ -1380,5 +1467,20 @@ html body {
   .paypal {
       width: 300px;
       margin: 0 auto;
+  }
+
+  .bottomWave {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .bottomWave2 {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .bottomWave3 {
+    display: block;
+    margin-top: 6.2%;
   }
   }
