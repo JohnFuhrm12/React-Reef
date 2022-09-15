@@ -59,6 +59,11 @@ function Homescreen( {...props} ) {
         props.setAdminScreen(true);
     };
 
+    function showCart() {
+        props.setCartScreen(true);
+        props.setHome(false);
+      };
+
     return (
         <>
         <div className='page'>
@@ -71,7 +76,7 @@ function Homescreen( {...props} ) {
                 <div className='searchCart'>
                     <img src={search} className="search" alt="Search"/>
                     <input onChange={(e) => {setSearchKey(e.target.value)}} onKeyDown={(e) => {searchFunc(e)}} className='searchBar' type="text" value={searchKey} placeholder="Search ..."/>
-                    <img src={cart} className="cart" alt="Carrito"/>
+                    <img onClick={showCart} src={cart} className="cart" alt="Carrito"/>
                     <p className='cartQuantity'>{props.cartAmount}</p>
                 </div>
             </div>

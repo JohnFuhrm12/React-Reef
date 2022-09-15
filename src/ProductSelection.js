@@ -35,10 +35,6 @@ function ProductSelection( {...props} ) {
 
   const productsRef = collection(db, "products");
 
-  useEffect(() => {
-    console.log(props.productSelectionCategory);
-  })
-
   const getProductItems = async () => {
     const itemsRef = query(productsRef, where('itemRow', '==', 1), where('itemCategory', '==', props.productSelectionCategory));
     const currentQuerySnapshot = await getDocs(itemsRef);
@@ -58,6 +54,11 @@ function ProductSelection( {...props} ) {
     getProductItems();
   }, []);
 
+  // When Category State is Changed Re-Render Mapped items
+  useEffect(() => {
+    getProductItems();
+  }, [props.productSelectionCategory]);
+
   function returnHome() {
     props.setProductSelectionScreen(false);
     props.setHome(true);
@@ -66,7 +67,7 @@ function ProductSelection( {...props} ) {
   function goToProduct(e) {
     props.setProductSelectionScreen(false);
     props.setProductScreen(true);
-    props.setCurrentSection('SoftCoral');
+    props.setCurrentSection(e.currentTarget.getAttribute("data-category"));
     props.setProductImage(e.currentTarget.title);
     props.setProductName(e.currentTarget.alt);
     props.setProductPrice(e.currentTarget.id);
@@ -86,19 +87,23 @@ function ProductSelection( {...props} ) {
     };
   };
 
+  const showProductSelection = async (e) => {
+    props.setProductSelectionCategory(e.currentTarget.title);
+  };
+
   return (
     <>
     <div className="page">
       <div className='titleBar'>
             <h1 className='titleName' onClick={returnHome} >JF Aquatics</h1>
-            <h1 className='catName'>Corals</h1>
-            <h1 className='catName'>Supplies</h1>
-            <h1 className='catName'>Fish</h1>
-            <h1 className='catName'>Inverts</h1>
+            <h1 onClick={showProductSelection} title="Soft Corals" className='catName'>Corals</h1>
+            <h1 onClick={showProductSelection} title="Supplies" className='catName'>Supplies</h1>
+            <h1 onClick={showProductSelection} title="Saltwater Fish" className='catName'>Fish</h1>
+            <h1 onClick={showProductSelection} title="Invertebrates" className='catName'>Inverts</h1>
           <div className='searchCart'>
             <img src={search} className="search" alt="Search"/>
             <input onChange={(e) => {setSearchKey(e.target.value)}} onKeyDown={(e) => {searchFunc(e)}} className='searchBar' type="text" value={searchKey} placeholder="Search ..."/>
-            <img src={cart} className="cart" alt="Carrito"/>
+            <img onClick={showCart} src={cart} className="cart" alt="Carrito"/>
             <p className='cartQuantity'>{props.cartAmount}</p>
           </div>
       </div>
@@ -113,7 +118,7 @@ function ProductSelection( {...props} ) {
         {productItems.map((productItem) => {
             return (
                     <div>
-                      <img onClick={goToProduct} src={productItem.itemIMG} className="sectionIMG" title={productItem.itemIMG} name={productItem.itemDesc} id={productItem.itemPrice} alt={productItem.itemName}/>
+                      <img onClick={goToProduct} data-category={productItem.itemCategory} src={productItem.itemIMG} className="sectionIMG" title={productItem.itemIMG} name={productItem.itemDesc} id={productItem.itemPrice} alt={productItem.itemName}/>
                       <h1 className='itemName'>{productItem.itemName}</h1>
                       <h1 className='itemPrice'>{productItem.itemPrice}</h1>
                     </div>
@@ -124,7 +129,7 @@ function ProductSelection( {...props} ) {
         {productItems2.map((productItem2) => {
             return (
                     <div>
-                      <img onClick={goToProduct} src={productItem2.itemIMG} className="sectionIMG" title={productItem2.itemIMG} name={productItem2.itemDesc} id={productItem2.itemPrice} alt={productItem2.itemName}/>
+                      <img onClick={goToProduct} data-category={productItem2.itemCategory} src={productItem2.itemIMG} className="sectionIMG" title={productItem2.itemIMG} name={productItem2.itemDesc} id={productItem2.itemPrice} alt={productItem2.itemName}/>
                       <h1 className='itemName'>{productItem2.itemName}</h1>
                       <h1 className='itemPrice'>{productItem2.itemPrice}</h1>
                     </div>
@@ -135,7 +140,7 @@ function ProductSelection( {...props} ) {
         {productItems3.map((productItem3) => {
             return (
                     <div>
-                      <img onClick={goToProduct} src={productItem3.itemIMG} className="sectionIMG" title={productItem3.itemIMG} name={productItem3.itemDesc} id={productItem3.itemPrice} alt={productItem3.itemName}/>
+                      <img onClick={goToProduct} data-category={productItem3.itemCategory} src={productItem3.itemIMG} className="sectionIMG" title={productItem3.itemIMG} name={productItem3.itemDesc} id={productItem3.itemPrice} alt={productItem3.itemName}/>
                       <h1 className='itemName'>{productItem3.itemName}</h1>
                       <h1 className='itemPrice'>{productItem3.itemPrice}</h1>
                     </div>

@@ -112,15 +112,21 @@ function Cart( {...props} ) {
     };
   };
 
+  function showProductSelection(e) {
+    props.setCartScreen(false);
+    props.setProductSelectionCategory(e.currentTarget.title);
+    props.setProductSelectionScreen(true);
+};
+
   return (
     <>
     <div className="page">
     <div className='titleBar'>
             <h1 className='titleName' onClick={returnHome} >JF Aquatics</h1>
-            <h1 className='catName'>Corals</h1>
-            <h1 className='catName'>Supplies</h1>
-            <h1 className='catName'>Fish</h1>
-            <h1 className='catName'>Inverts</h1>
+            <h1 onClick={showProductSelection} title="Soft Corals" className='catName'>Corals</h1>
+            <h1 onClick={showProductSelection} title="Supplies" className='catName'>Supplies</h1>
+            <h1 onClick={showProductSelection} title="Saltwater Fish" className='catName'>Fish</h1>
+            <h1 onClick={showProductSelection} title="Invertebrates" className='catName'>Inverts</h1>
           <div className='searchCart'>
             <img src={search} className="search" alt="Search"/>
             <input onChange={(e) => {setSearchKey(e.target.value)}} onKeyDown={(e) => {searchFunc(e)}} className='searchBar' type="text" value={searchKey} placeholder="Search ..."/>
