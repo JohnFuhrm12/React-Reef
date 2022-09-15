@@ -2,6 +2,8 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import Homescreen from './Homescreen';
 import ProductSelection from './ProductSelection';
+import Product from './Product';
+import Cart from './Cart';
 import Admin from './Admin';
 
 import useLocalStorage from "./useLocalStorage";
@@ -32,10 +34,23 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const [productSelectionCategory, setProductSelectionCategory] = useState('');
-  const [productSelectionScreen, setProductSelectionScreen] = useState('');
+  const [productSelectionScreen, setProductSelectionScreen] = useState(false);
+
+  const [productScreen, setProductScreen] = useState(false);
+  const [productImage, setProductImage] = useState('');
+  const [productName, setProductName] = useState(''); 
+  const [productPrice, setProductPrice] = useState(''); 
+  const [productDesc, setProductDesc] = useState(''); 
 
   const [adminScreen, setAdminScreen] = useState(false);
   const [admin, setAdmin] = useState(false);
+
+  const [currentSection, setCurrentSection] = useState('');
+
+  const [paypalTotal, setPaypalTotal] = useState('0.02');
+
+  const [cartScreen, setCartScreen] = useState(false);
+  const [clientInfoScreen, setClientInfoScreen] = useState(false);
 
   // Remember user for cart
   var id = "id" + Math.random().toString(16).slice(2);
@@ -55,9 +70,10 @@ function App() {
   useEffect(() => {   
     getDbmessages();
     
-    if (currentUser === undefined) {
+    if (currentUser == undefined) {
       setCurrentUser(id);
     };
+    console.log(props.currentUser);
   }, []);
 
   const props = { 
@@ -77,13 +93,35 @@ function App() {
     setAdminScreen,
     admin,
     setAdmin,
+    productScreen, 
+    setProductScreen,
+    productImage,
+    setProductImage,
+    productName,
+    setProductName,
+    productPrice,
+    setProductPrice,
+    productDesc,
+    setProductDesc,
+    currentSection,
+    setCurrentSection,
+    currentUser,
+    cartScreen,
+    setCartScreen,
+    clientInfoScreen,
+    setClientInfoScreen,
+    paypalTotal,
+    setPaypalTotal,
+    cartItems,
  };
 
   return (
     <>
     {home ? <Homescreen {...props}/> : <></>}
     {productSelectionScreen ? <ProductSelection {...props}/> : <></>}
+    {productScreen ? <Product {...props}/> : <></>}
     {adminScreen ? <Admin {...props}/> : <></>}
+    {cartScreen ? <Cart {...props}/> : <></>}
     </>
   );
 }
