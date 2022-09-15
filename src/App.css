@@ -261,6 +261,15 @@ html body {
   flex-direction: row;
   padding-left: 40px;
 }
+
+.sectionBarSearch {
+  background-color: #1db0d1;
+  display: flex;
+  flex-direction: row;
+  padding-left: 40px;
+  margin-bottom: 60px;
+}
+
 .sectionHeadingHome {
   margin-left: 10px;
   font-size: 20px;
@@ -595,7 +604,7 @@ html body {
 }
 
 .cancel:hover {
-  color: rgb(104, 101, 76);
+  color: #1db0d1;
 }
 
 .cartTotalBox {
@@ -640,6 +649,11 @@ html body {
 .bottomWave2 {
   display: block;
   margin-top: -80px;
+}
+
+.bottomWave3 {
+  display: block;
+  margin-top: 6.2%;
 }
 
 /* Client Info */

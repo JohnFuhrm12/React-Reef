@@ -116,7 +116,7 @@ function Cart( {...props} ) {
     props.setCartScreen(false);
     props.setProductSelectionCategory(e.currentTarget.title);
     props.setProductSelectionScreen(true);
-};
+  };
 
   return (
     <>

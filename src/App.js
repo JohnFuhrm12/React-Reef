@@ -5,6 +5,7 @@ import ProductSelection from './ProductSelection';
 import Product from './Product';
 import Cart from './Cart';
 import ClientInfo from './ClientInfo';
+import Search from './Search';
 import Admin from './Admin';
 
 import useLocalStorage from "./useLocalStorage";
@@ -108,7 +109,7 @@ function App() {
     setCurrentSection,
     currentUser,
     cartScreen,
-    setCartScreen,
+    setCartScreen, 
     clientInfoScreen,
     setClientInfoScreen,
     paypalTotal,
@@ -124,6 +125,7 @@ function App() {
     {adminScreen ? <Admin {...props}/> : <></>}
     {cartScreen ? <Cart {...props}/> : <></>}
     {clientInfoScreen ? <ClientInfo {...props}/> : <></>}
+    {searchScreen ? <Search {...props}/> : <></>}
     </>
   );
 }
