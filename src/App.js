@@ -4,6 +4,7 @@ import Homescreen from './Homescreen';
 import ProductSelection from './ProductSelection';
 import Product from './Product';
 import Cart from './Cart';
+import ClientInfo from './ClientInfo';
 import Admin from './Admin';
 
 import useLocalStorage from "./useLocalStorage";
@@ -122,6 +123,7 @@ function App() {
     {productScreen ? <Product {...props}/> : <></>}
     {adminScreen ? <Admin {...props}/> : <></>}
     {cartScreen ? <Cart {...props}/> : <></>}
+    {clientInfoScreen ? <ClientInfo {...props}/> : <></>}
     </>
   );
 }
