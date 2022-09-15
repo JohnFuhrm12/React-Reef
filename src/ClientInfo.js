@@ -38,14 +38,12 @@ function ClientInfo( {...props} ) {
   const [streetName, setStreetName] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [phone, setPhone] = useState('');
-  const [payment, setPayment] = useState('Cash');
 
   const [clientLastName, setClientLastName] = useState('');
   const [countryName, setCountryName] = useState('United States');
   const [buildingName, setBuildingName] = useState('');
   const [cityName, setCityName] = useState('');
   const [emailName, setEmailName] = useState('');
-  const [service, setService] = useState('Delivery');
 
   const [firstPage, setFirstPage] = useState(true);
 
@@ -138,12 +136,7 @@ function ClientInfo( {...props} ) {
             <label className='clientInfoLabel' for="PostalCode">Postal Code:</label>
             <input onChange={(e) => {setPostalCode(e.target.value)}} className='clientInfoInput' name='PostalCode' value={postalCode} required></input>
             <label className='clientInfoLabel' for="Phone">Phone:</label>
-            <input onChange={(e) => {setPhone(e.target.value)}} className='clientInfoInput' name='Phone' value={phone} required></input>
-            <label className='clientInfoLabel' for="Payment">Payment Method:</label>
-            <select onChange={(e) => {setPayment(e.target.value)}} className='clientInfoInput' name="Payment" id="Payment">
-              <option value={'Efectivo'}>Cash</option>
-              <option value={'Tarjeta'}>Card</option>
-            </select>     
+            <input onChange={(e) => {setPhone(e.target.value)}} className='clientInfoInput' name='Phone' value={phone} required></input> 
         </div>
         <div className='secondInfoColumn'>
             <label className='clientInfoLabel' for="LastName">Last Name:</label>
@@ -155,12 +148,7 @@ function ClientInfo( {...props} ) {
             <label className='clientInfoLabel' for="City">City:</label>
             <input onChange={(e) => {setCityName(e.target.value)}} className='clientInfoInput' name='City' value={cityName} required></input>    
             <label className='clientInfoLabel' for="Email">Email:</label>
-            <input onChange={(e) => {setEmailName(e.target.value)}} className='clientInfoInput' name='Email' value={emailName} required></input>
-            <label className='clientInfoLabel' for="Service">Service:</label>
-            <select onChange={(e) => {setService(e.target.value)}} className='clientInfoInput' name="Service" id="Service">
-              <option value={'Domicilio'}>Delivery</option>
-              <option value={'Para Llevar'}>Pickup</option>
-            </select>           
+            <input onChange={(e) => {setEmailName(e.target.value)}} className='clientInfoInput' name='Email' value={emailName} required></input>         
         </div>
       </div>
       <button type='submit' className='procedeButtonClientInfo'>Next</button>
@@ -180,8 +168,6 @@ function ClientInfo( {...props} ) {
             <h2 className='clientDetail'>Apartment: {buildingName}</h2>
             <h2 className='clientDetail'>Phone: {phone}</h2>
             <h2 className='clientDetail'>Email: {emailName}</h2>
-            <h2 className='clientDetail'>Payment Method: {payment}</h2>
-            <h2 className='clientDetail'>Service: {service}</h2>
         </div>
       <h1 className='infoHeader'>Your Order:</h1>
       <div className='detailsHeaders'>
@@ -205,10 +191,9 @@ function ClientInfo( {...props} ) {
       <div className='clientDetailsTotalBox'>
         <h1 className='clientDetailsTotal'>Total</h1>
       </div>
-      <h1>${newSum}</h1>
+      <h1>${newSum.toFixed(2)}</h1>
       <button onClick={() => {setFirstPage(true)}} className='procedeButtonClientInfo'>Back</button>
       <div className='paypal'>
-      {payment === 'Tarjeta' ?
       <PayPalScriptProvider options={{ "client-id": "test"}}>
         <PayPalButtons
             style={{ layout: "vertical", color: "blue", shape: "rect" }}
@@ -225,7 +210,6 @@ function ClientInfo( {...props} ) {
             }}
         />;
       </PayPalScriptProvider>
-       : <></>}
       </div>
       </>}
       <svg className='bottomWave' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">

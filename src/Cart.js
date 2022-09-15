@@ -55,7 +55,7 @@ function Cart( {...props} ) {
         });
 
         setNewSum(sum);
-        props.setPaypalTotal((newSum / 282.50).toFixed(2));
+        props.setPaypalTotal(newSum.toFixed(2));
       };
 
     useEffect(() => {     
@@ -165,7 +165,7 @@ function Cart( {...props} ) {
         })}
         <div className='cartTotalBox'>
           <h1 className='cartTotalHeader'>Cart Total</h1>
-          <h1>${newSum}</h1>
+          <h1>${newSum.toFixed(2)}</h1>
           <button onClick={showClientInfo} className='procedeButton'>Procede</button>
         </div>
         <svg className='bottomWave' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">

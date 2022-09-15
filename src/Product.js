@@ -35,7 +35,7 @@ function Product( {...props} ) {
 
   const [quantity, setQuantity] = useState(0);
 
-  const price = Number(props.productPrice.replace('$','').replace('.',''));
+  const price = Number(props.productPrice.replace('$',''));
   const image = props.productName.replace(' ','').replace(' ','');
   const Newimage = image.charAt(0).toLowerCase() + image.slice(1)
 
@@ -136,7 +136,7 @@ function showCart() {
             <button className='subtButton' onClick={subtract}>-</button>
             <h1 className='quantity'>{quantity}</h1>
             <button className='addButton' onClick={add}>+</button>
-            <button onClick={addToCart} className='addCartButton'>Agregar al Carrito</button>
+            <button onClick={addToCart} className='addCartButton'>Add to Cart</button>
           </div>
         </div>
       </div>
