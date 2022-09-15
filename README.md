@@ -9,6 +9,6 @@ A SPA that mimics a multi-page site with a homepage, various product categories,
 
 ![reefstore](https://user-images.githubusercontent.com/61069716/190331056-d00577fb-dcf2-4f86-9124-d9eb1c7c1ae6.png)
 
+![reefstore2](https://user-images.githubusercontent.com/61069716/190332484-6dedf8f6-7a6a-4f77-8e33-3dffcfafcdbf.png)
 
-![reefstore2](https://user-images.githubusercontent.com/61069716/190331326-bd35543d-c6b9-4222-9619-f9ab9aad2d5e.png)
 
