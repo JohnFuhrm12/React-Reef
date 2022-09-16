@@ -83,7 +83,7 @@ function Homescreen( {...props} ) {
             <div className='videoBox'>
                 <h1 className='videoText'>The Best Supply of</h1>
                 <h1 className='videoText2'>Saltwater Fish and Corals</h1>
-                <video className='homeVideo' src={testvid} muted autoPlay loop/>
+                <video className='homeVideo' src={testvid} webkit-playsinline playsInline muted autoPlay loop/>
             </div>
             <div className='waveSVG'>
                 <g fill="none" fill-rule="evenodd">

@@ -2,12 +2,14 @@
 html body {
   overflow-x: hidden;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .page {
   align-items: center;
   text-align: center;
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
 }
 /* Initial Setup */
 
@@ -948,9 +950,10 @@ html body {
   
   .testSVG5 {
     position: absolute;
-    top: 35px;
-    left: 30px;
+    top: 34px;
+    left: 15px;
     z-index: 0;
+    width: 410px;
   }
   
   /* Home-screen Selection Section*/
