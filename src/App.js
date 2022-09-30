@@ -5,6 +5,7 @@ import ProductSelection from './ProductSelection';
 import Product from './Product';
 import Cart from './Cart';
 import ClientInfo from './ClientInfo';
+import PaymentComplete from './PaymentComplete';
 import Search from './Search';
 import Admin from './Admin';
 
@@ -53,6 +54,9 @@ function App() {
 
   const [cartScreen, setCartScreen] = useState(false);
   const [clientInfoScreen, setClientInfoScreen] = useState(false);
+
+  const [paymentComplete, setPaymentComplete] = useState(false);
+  const [currentOrder, setCurrentOrder] = useState('');
 
   // Remember user for cart
   var id = "id" + Math.random().toString(16).slice(2);
@@ -115,6 +119,10 @@ function App() {
     paypalTotal,
     setPaypalTotal,
     cartItems,
+    paymentComplete,
+    setPaymentComplete,
+    currentOrder,
+    setCurrentOrder
  };
 
   return (
@@ -126,6 +134,7 @@ function App() {
     {cartScreen ? <Cart {...props}/> : <></>}
     {clientInfoScreen ? <ClientInfo {...props}/> : <></>}
     {searchScreen ? <Search {...props}/> : <></>}
+    {paymentComplete ? <PaymentComplete {...props}/> : <></>}
     </>
   );
 }

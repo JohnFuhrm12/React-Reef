@@ -54,6 +54,8 @@ function ClientInfo( {...props} ) {
 
   let sum = 0;
 
+  var id = Math.random().toString(16).slice(2);
+
   const getDbmessages = async () => {
     const itemsRef = query(cartRef, where('user', '==', props.currentUser));
     const currentQuerySnapshot = await getDocs(itemsRef);
@@ -63,13 +65,13 @@ function ClientInfo( {...props} ) {
   function getTotal() {
     props.cartItems.map((cartItem) => {
       totals.push(cartItem.itemPrice * cartItem.itemQuantity)
-    })
+    });
 
     totals.forEach(item => {
       sum += item;
     });
 
-    setNewSum(sum)
+    setNewSum(sum);
   };
 
     useEffect(() => {     
@@ -102,6 +104,23 @@ function ClientInfo( {...props} ) {
     props.setProductSelectionCategory(e.currentTarget.title);
     props.setProductSelectionScreen(true);
     };
+
+  const createOrder = async (e) => {
+      await setDoc(doc(db, 'orders', id), {
+        clientName: `${clientFirstName} ${clientLastName}`,
+        clientNumber: phone,
+        clientEmail: emailName,
+        clientAddress: `${streetName} ${buildingName} ${cityName} ${postalCode} ${countryName}`,
+        orderProducts: props.cartItems.map((cartItem) => {
+          return cartItem.itemQuantity + 'x' + ' ' + cartItem.itemName + ' ';
+        }),
+        orderTotal: `$${newSum.toFixed(2)}`,
+        paymentMethod: 'Paypal/Card',
+        orderNumber: id,
+        orderStatus: 'Pending Delivery',
+      });
+      props.setCurrentOrder(id);
+  };
 
   return (
     <>
@@ -207,6 +226,11 @@ function ClientInfo( {...props} ) {
                         },
                     ],
                 });
+            }}
+            onApprove={(data, actions) => {
+              props.setClientInfoScreen(false);
+              props.setPaymentComplete(true);
+              createOrder();
             }}
         />;
       </PayPalScriptProvider>

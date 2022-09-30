@@ -772,6 +772,48 @@ html body {
 }
 /* Client Info */
 
+/* Order Confirmation */
+.confirmBox {
+  width: 700px;
+  margin: 0 auto;
+  background-color: #83afda;
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  box-shadow: -10px 10px 10px black, 3px -3px 10px black;
+}
+
+.confirmTitle {
+
+}
+
+.confirmSubTitle {
+ font-size: 20px;
+ margin-left: 60px;
+margin-right: 60px;
+}
+
+.orderDetails {
+  margin-top: 30px;
+}
+
+.shippingDetails {
+  margin-top: 30px;
+}
+
+.orderTitle {
+
+}
+
+.orderSubtitle {
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 22px;
+}
+
+/* Order Confirmation */
+
+
 
 
 
