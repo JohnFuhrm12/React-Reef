@@ -45,18 +45,16 @@ function PaymentComplete( {...props} ) {
     useEffect(() => {     
         props.getDbmessages();
         getCurrentOrder();
-    }, []);
+    }, [props.currentOrder]);
 
   function returnHome() {
     props.setPaymentComplete(false);
     props.setHome(true);
-    setOrderItems([]);
   };
 
   function showCart() {
     props.setCartScreen(true);
     props.setPaymentComplete(false);
-    setOrderItems([]);
   };
 
   function searchFunc(e) {
@@ -64,7 +62,6 @@ function PaymentComplete( {...props} ) {
         props.setSearchQuery(searchKey);
         props.setSearchScreen(true);
         props.setPaymentComplete(false);
-        setOrderItems([]);
     };
   };
 
@@ -72,7 +69,6 @@ function PaymentComplete( {...props} ) {
     props.setPaymentComplete(false);
     props.setProductSelectionCategory(e.currentTarget.title);
     props.setProductSelectionScreen(true);
-    setOrderItems([]);
     };
 
   return (

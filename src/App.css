@@ -784,13 +784,13 @@ html body {
 }
 
 .confirmTitle {
-
+  font-size: 28px;
 }
 
 .confirmSubTitle {
- font-size: 20px;
- margin-left: 60px;
-margin-right: 60px;
+ font-size: 18px;
+ margin-left: 80px;
+margin-right: 80px;
 }
 
 .orderDetails {
@@ -802,13 +802,13 @@ margin-right: 60px;
 }
 
 .orderTitle {
-
+  font-size: 28px;
 }
 
 .orderSubtitle {
   margin-left: 40px;
   margin-right: 40px;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 /* Order Confirmation */
