@@ -110,7 +110,7 @@ function ClientInfo( {...props} ) {
         clientName: `${clientFirstName} ${clientLastName}`,
         clientNumber: phone,
         clientEmail: emailName,
-        clientAddress: `${streetName} ${buildingName} ${cityName} ${postalCode} ${countryName}`,
+        clientAddress: `${streetName}, ${buildingName}, ${cityName} ${postalCode}, ${countryName}`,
         orderProducts: props.cartItems.map((cartItem) => {
           return cartItem.itemQuantity + 'x' + ' ' + cartItem.itemName + ' ';
         }),
